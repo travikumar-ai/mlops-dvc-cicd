@@ -1,0 +1,5 @@
+[core]
+    remote = dagshub
+['remote "dagshub"']
+    url = s3://mlops-dvc-cicd
+    endpointurl = https://dagshub.com/api/v1/repo-buckets/s3/travikumar3456

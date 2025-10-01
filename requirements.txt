@@ -6,3 +6,6 @@ ruff
 scikit-learn
 scipy
 seaborn
+dvc
+dvc_s3
+dvc['gs']
