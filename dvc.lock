@@ -1,0 +1,23 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python src/components/data_ingestion.py data/data.csv
+    deps:
+    - path: data/data.csv
+      hash: md5
+      md5: 6d115d14c94179771445fc28b66232cc
+      size: 56020
+    - path: src/components/data_ingestion.py
+      hash: md5
+      md5: 1dc577ba02f8162b5079b2f8457a98f2
+      size: 3903
+    params:
+      config/params.yaml:
+        data.random_state: 64
+        data.test_size: 0.2
+    outs:
+    - path: src/artifacts/
+      hash: md5
+      md5: 45ca3bf1adc4af5f2cb9bf68a26676cc.dir
+      size: 114162
+      nfiles: 3

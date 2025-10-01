@@ -1,0 +1,22 @@
+log:
+  log_path: 'logs'
+
+data:
+  data_path: data
+  data_file: data/data.csv
+  random_state: 64
+  test_size: 0.2
+
+src:
+  src_path: src
+  artifacts:
+    artifacts_path: src/artifacts
+    raw_data_path: src/artifacts/raw_data.csv
+    processed_data_path: src/artifacts/processed_data.csv
+    train_data_path: src/artifacts/train_data.csv
+    test_data_path: src/artifacts/test_data.csv
+  models:
+    model_path: src/artifacts/model.pkl
+  
+
+    

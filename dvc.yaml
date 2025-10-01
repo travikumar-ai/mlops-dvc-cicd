@@ -1,0 +1,12 @@
+stages:
+  prepare:
+    cmd: python src/components/data_ingestion.py data/data.csv
+    deps:
+    - data/data.csv
+    - src/components/data_ingestion.py
+    params:
+    - config/params.yaml:
+      - data.random_state
+      - data.test_size
+    outs:
+    - src/artifacts/
