@@ -6,6 +6,16 @@ data:
   data_file: data/data.csv
   random_state: 64
   test_size: 0.2
+  numerical_columns:
+    - reading_score
+    - writing_score
+  categorical_columns:
+    - gender
+    - race_ethnicity
+    - parental_level_of_education
+    - lunch
+    - test_preparation_course
+  target_column: math_score
 
 src:
   src_path: src
@@ -17,6 +27,8 @@ src:
     test_data_path: src/artifacts/test_data.csv
   models:
     model_path: src/artifacts/model.pkl
+  preprocessor:
+    preprocessor_path: src/artifacts/preprocessor.pkl
   
 
     

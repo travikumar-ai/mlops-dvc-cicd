@@ -12,3 +12,12 @@ stages:
     - src/artifacts/processed_data.csv
     - src/artifacts/train_data.csv
     - src/artifacts/test_data.csv
+
+  data_transform:
+    cmd: python src/components/data_transformation.py
+    deps:
+    - src/artifacts/test_data.csv
+    - src/artifacts/train_data.csv
+    - src/components/data_transformation.py
+    outs:
+    - src/artifacts/preprocessor.pkl

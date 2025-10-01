@@ -28,3 +28,23 @@ stages:
       hash: md5
       md5: 15eabad97a32e1ea7b07c88d2311a7d0
       size: 53386
+  data_transform:
+    cmd: python src/components/data_transformation.py
+    deps:
+    - path: src/artifacts/test_data.csv
+      hash: md5
+      md5: e130bfe3ce58e20c8332a7189cfc0193
+      size: 3755
+    - path: src/artifacts/train_data.csv
+      hash: md5
+      md5: 15eabad97a32e1ea7b07c88d2311a7d0
+      size: 53386
+    - path: src/components/data_transformation.py
+      hash: md5
+      md5: 02e1e01900429d2797cc29763e5f37a8
+      size: 5227
+    outs:
+    - path: src/artifacts/preprocessor.pkl
+      hash: md5
+      md5: f28a899b2dfb0aa9616c7c544e0bc825
+      size: 2892
