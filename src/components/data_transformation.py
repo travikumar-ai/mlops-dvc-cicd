@@ -86,8 +86,8 @@ class DataTransform:
 
             input_features_train_arr = preprocessor.fit_transform(
                 train_input_features_df)
-            input_features_test_arr = preprocessor.fit_transform(
-                test_input_features_df)
+            input_features_test_arr = preprocessor.transform(
+                test_input_features_df) # Use transform to prevent data leakage
 
             train_arr = np.c_[input_features_train_arr,
                               np.array(train_target_feature)]
@@ -123,7 +123,6 @@ def main():
     numerical_columns = data_config['numerical_columns']
     categorical_columns = data_config['categorical_columns']
     target_column = data_config['target_column']
-    print(train_data_path)
     preprocessor_path = path_joiner(
         config['src']['preprocessor']['preprocessor_path'])
 

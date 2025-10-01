@@ -9,8 +9,8 @@ stages:
       size: 56020
     - path: src/components/data_ingestion.py
       hash: md5
-      md5: 1dc577ba02f8162b5079b2f8457a98f2
-      size: 3903
+      md5: 39f4acaf97a0cae706a3699b00645b65
+      size: 3900
     params:
       config/params.yaml:
         data.random_state: 64
@@ -22,29 +22,36 @@ stages:
       size: 57021
     - path: src/artifacts/test_data.csv
       hash: md5
-      md5: e130bfe3ce58e20c8332a7189cfc0193
-      size: 3755
+      md5: 39a27afe1c5709a80c086f3b14574c08
+      size: 11443
     - path: src/artifacts/train_data.csv
       hash: md5
-      md5: 15eabad97a32e1ea7b07c88d2311a7d0
-      size: 53386
+      md5: cec1280938e69c4da89b88a8cbf5ac09
+      size: 45698
   data_transform:
     cmd: python src/components/data_transformation.py
     deps:
     - path: src/artifacts/test_data.csv
       hash: md5
-      md5: e130bfe3ce58e20c8332a7189cfc0193
-      size: 3755
+      md5: 39a27afe1c5709a80c086f3b14574c08
+      size: 11443
     - path: src/artifacts/train_data.csv
       hash: md5
-      md5: 15eabad97a32e1ea7b07c88d2311a7d0
-      size: 53386
+      md5: cec1280938e69c4da89b88a8cbf5ac09
+      size: 45698
     - path: src/components/data_transformation.py
       hash: md5
-      md5: 02e1e01900429d2797cc29763e5f37a8
-      size: 5227
+      md5: e9d9e31be678563d1fa367d90f1d83b2
+      size: 5235
     outs:
     - path: src/artifacts/preprocessor.pkl
       hash: md5
-      md5: f28a899b2dfb0aa9616c7c544e0bc825
+      md5: 5092efdf43070604436f97508f5475c1
       size: 2892
+  train:
+    cmd: python src/components/model_training.py
+    deps:
+    - path: src/components/model_training.py
+      hash: md5
+      md5: 360bf765c9ee03db13ceebc83bb5e1d7
+      size: 9108

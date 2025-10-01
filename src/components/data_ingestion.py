@@ -85,7 +85,7 @@ def main():
     training_data_file = path_joiner(artifacts_config['train_data_path'])
     testing_data_file = path_joiner(artifacts_config['test_data_path'])
     random_state=data_config['random_state']
-    test_size=data_config['random_state']
+    test_size=data_config['test_size']
     
     data_ingestion = DataIngestion(
         raw_data_file= raw_data_file,

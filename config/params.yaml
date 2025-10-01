@@ -26,9 +26,83 @@ src:
     train_data_path: src/artifacts/train_data.csv
     test_data_path: src/artifacts/test_data.csv
   models:
-    model_path: src/artifacts/model.pkl
+    model_save_path: src/artifacts/
   preprocessor:
     preprocessor_path: src/artifacts/preprocessor.pkl
   
 
-    
+models_params: 
+  LinearRegression: {}
+  SVR:
+    kernel:
+      - linear
+      - rbf
+  KNeighborsRegressor: 
+    n_neighbors:
+      - 3
+      - 5
+      - 7
+    weights:
+      - uniform
+      - distance
+    algorithm:
+      - auto
+      - ball_tree
+      - kd_tree
+      - brute
+    leaf_size:
+      - 10
+      - 20
+      - 30
+  DecisionTreeRegressor:
+    criterion: 
+      - squared_error
+      - friedman_mse
+      - absolute_error
+    splitter:
+      - best
+      - random
+    max_depth:
+      - 10
+      - 20
+      - 30
+  RandomForestRegressor: 
+    criterion:
+      - squared_error
+      - friedman_mse
+      - absolute_error
+  AdaBoostRegressor:
+    learning_rate:
+      - 0.1
+      - 0.01
+      - 0.5
+      - 0.001
+    n_estimators:
+      - 8
+      - 16
+      - 32
+      - 64
+      - 128
+      - 256
+  XGBRegressor:
+    learning_rate:
+      - 0.1
+      - 0.01
+      - 0.05
+      - 0.001
+    n_estimators:
+      - 8
+      - 16
+      - 32
+      - 64
+      - 128
+      - 256
+  CatBoostRegressor:
+    depth:
+      - 6
+      - 8
+      - 10
+    iterations:
+      - 30
+      - 50
+      - 100
