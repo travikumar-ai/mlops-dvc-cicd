@@ -129,7 +129,8 @@ class ModelTrainer:
             # Disable MLflow model registry calls for DagsHub compatibility
             os.environ["MLFLOW_ENABLE_MODEL_REGISTRY_SQL_BACKEND"] = "false"
             dagshub.init(repo_owner='travikumar3456', repo_name='mlops-dvc-cicd', mlflow=True)
-            mlflow.set_experiment(experiment_id="1")
+            mlflow.set_experiment(experiment_id="1" )
+            mlflow.autolog()
             with mlflow.start_run():
                 best_params = models_best_params[best_model_name]
                 
@@ -153,13 +154,15 @@ class ModelTrainer:
                 # Infer signature correctly and log the model
                 signature = infer_signature(train_arr, best_model.predict(train_arr))
                 
+                
                 # mlflow.sklearn.log_model(
                 #                 sk_model= best_model,
-                #                 artifact_path='model',
-                #                 signature=signature
+                #                 artifact_path='f23e9e88582d4457aa2ba81b220d7659',
+                #                 signature=signature, 
+                #                 # name='LRR'
                 #             )
                 
-                mlflow.autolog()
+                
                 
                 # if best_model_score < 0.6:
                 #     raise CustomException("No best model found", sys)

@@ -53,5 +53,5 @@ stages:
     deps:
     - path: src/components/model_training.py
       hash: md5
-      md5: 360bf765c9ee03db13ceebc83bb5e1d7
-      size: 9108
+      md5: 17c3b3e93bd89e5aa944509be0e7348a
+      size: 9218
