@@ -99,8 +99,8 @@ class ModelTrainer:
             test_input_features_df = test_data.drop(columns=[self.target_column], axis=1)
             test_target_features = np.array(test_data[self.target_column])
             
-            train_arr = preprocessor.fit_transform(train_input_features_df)
-            test_arr = preprocessor.transform(test_input_features_df)
+            train_arr = preprocessor.transform(train_input_features_df) # Use transform, not fit_transform
+            test_arr = preprocessor.transform(test_input_features_df) # The preprocessor is already fit
             
             models = {
                 'LinearRegression': LinearRegression(),
