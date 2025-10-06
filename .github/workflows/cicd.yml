@@ -44,10 +44,10 @@ jobs:
           # dvc remote modify dagshub --local user 
           # dvc remote modify dagshub --local password 
           
-          dvc remote add -f dagshub s3://mlops-dvc-cicd
-          dvc remote modify dagshub endpointurl https://dagshub.com/api/v1/repo-buckets/s3/${{ env.DAGSHUB_USER_NAME }}
-          dvc remote modify dagshub --local access_key_id $DAGSHUB_USER_NAME
-          dvc remote modify dagshub --local secret_access_key $DAGSHUB_TOKEN
+          dvc remote add -f origin s3://mlops-dvc-cicd
+          dvc remote modify origin endpointurl https://dagshub.com/api/v1/repo-buckets/s3/${{ env.DAGSHUB_USER_NAME }}
+          dvc remote modify origin --local access_key_id $DAGSHUB_SECRET_KEY
+          dvc remote modify origin --local secret_access_key $DAGSHUB_SECRET_KEY
           
           # Configure Git user
           git config --global user.email "thotakuriravi@gmail.com"
@@ -67,6 +67,7 @@ jobs:
           # python src/components/data_ingestion.py
           # python src/components/data_transformation.py
           # python src/components/model_training.py
+          dvc repro
 
       - name: Push Artifacts to DVC Remote
         run: |
