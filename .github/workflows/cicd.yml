@@ -44,14 +44,14 @@ jobs:
           # dvc remote modify dagshub --local user 
           # dvc remote modify dagshub --local password 
           
-          dvc remote add dagshub s3://mlops-dvc-cicd
-          dvc remote modify dagshub endpointurl https://dagshub.com/api/v1/repo-buckets/s3/${{ env.DAGSHUB_USER_NAME }}
+          dvc remote add -f dagshub s3://mlops-dvc-cicd
+          dvc remote modify dagshub endpointurl https://dagshub.com/${{ env.DAGSHUB_USER_NAME }}/mlops-dvc-cicd.s3
           dvc remote modify dagshub --local access_key_id $DAGSHUB_USER_NAME
           dvc remote modify dagshub --local secret_access_key $DAGSHUB_TOKEN
           
           # Configure Git user
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
+          git config --global user.email "thotakuriravi@gmail.com"
+          git config --global user.name "Ravi Kumar"
 
       - name: Pull Data and Models with DVC
         run: dvc pull
@@ -76,5 +76,5 @@ jobs:
           
           # Commit and push dvc.lock and .dvc files
           git add artifacts/preprocessor.pkl.dvc artifacts/models.dvc .gitignore
-          git commit -m "CI/CD: Update data and models"
+          git diff --cached --quiet || git commit -m "CI/CD: Update data and models"
           git push
