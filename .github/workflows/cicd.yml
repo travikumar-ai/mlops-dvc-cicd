@@ -45,7 +45,7 @@ jobs:
           # dvc remote modify dagshub --local password 
           
           dvc remote add -f dagshub s3://mlops-dvc-cicd
-          dvc remote modify dagshub endpointurl https://dagshub.com/${{ env.DAGSHUB_USER_NAME }}/mlops-dvc-cicd.s3
+          dvc remote modify dagshub endpointurl https://dagshub.com/api/v1/repo-buckets/s3/${{ env.DAGSHUB_USER_NAME }}
           dvc remote modify dagshub --local access_key_id $DAGSHUB_USER_NAME
           dvc remote modify dagshub --local secret_access_key $DAGSHUB_TOKEN
           
