@@ -5,7 +5,7 @@ data:
   data_path: data
   data_file: data/data.csv
   random_state: 64
-  test_size: 0.2
+  test_size: 0.3
   numerical_columns:
     - reading_score
     - writing_score
