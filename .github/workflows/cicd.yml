@@ -40,9 +40,9 @@ jobs:
           DAGSHUB_USER_NAME: ${{ secrets.DAGSHUB_USER_NAME }}
           DAGSHUB_TOKEN: ${{ secrets.DAGSHUB_TOKEN }}
         run: |
-          dvc remote modify origin --local auth basic
-          dvc remote modify origin --local user 
-          dvc remote modify origin --local password 
+          dvc remote modify dagshub --local auth basic
+          dvc remote modify dagshub --local user 
+          dvc remote modify dagshub --local password 
           
           # Configure Git user
           git config --global user.email "action@github.com"
@@ -59,9 +59,10 @@ jobs:
           MLFLOW_TRACKING_PASSWORD: ${{ secrets.DAGSHUB_TOKEN }}
         run: |
           # Run each stage of your pipeline
-          python src/components/data_ingestion.py
-          python src/components/data_transformation.py
-          python src/components/model_training.py
+          # python src/components/data_ingestion.py
+          # python src/components/data_transformation.py
+          # python src/components/model_training.py
+          dvc repro
 
       - name: Push Artifacts to DVC Remote
         run: |
